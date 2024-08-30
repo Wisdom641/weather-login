@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            min-height: 100vh;
+            background-color: #fff;
+            background-image: url("images/pexels-ozgomz-845405.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            padding: 20px 100px;
+            align-items: center;
+            z-index: 99;
+            margin-top: 15px;
+        }
+        #logo{
+            font-size: 1.5em;
+            color: #162938;
+            user-select: none;
+            text-decoration: none;
+        } 
+        #logo, .nav-menu{
+            display: flex;
+        }
+        header, #logo .nav-menu{
+            margin-top: 0.1px;
+        }
+        .nav-menu a{
+            margin: 1rem;
+            position: relative;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            color: #162938;
+            margin-left: 40px;
+        }
+        .nav-menu, a{
+            margin-right: 300px;
+        }
+        .nav-menu a::after{
+            content: "" ;
+            position: absolute;
+            left: 0;
+            bottom: 35px;
+            width: 100%;
+            height: 3px;
+            background: #162938;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .5s;
+        }
+        .nav-menu a:hover::after{
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5); /*set the background to be transparent*/
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /*adjust the alpha value here for the box shadow transparent*/
+            margin-top: 100px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;    
+        }
+        input[type="text"]{
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px; 
+        }
+        button {
+            background-color: #162938;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            color: #162938;
+            background-color: antiquewhite;
+        }
+        .weather_info {
+            margin-top: 5px;
+            display: none; 
+        }
+        .weather_info #temperature{
+            font-size: 1rem;
+        }
+        #weather-icon{
+            width: 150px;
+        }
+        #details{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-top: 50px;   
+        }
+        #col{
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        #col img{
+            height: 80px;
+            width: 60px;
+            margin-right: 10px;
+        }
+        #humidity, #wind{
+            font-size: 20px;
+            margin-top: -6px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a id="logo" href="home.html">@KOJO</a>
+      <nav class="nav-menu" id="navMenu">
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+          <a href="#">About</a>
+          <a href="weather.html">Weather App</a>
+      </nav>
+      </header>
+    <div class="container">
+        <h1>Wisdom Weather App</h1>
+        <input type="text" id="locationInput" placeholder="Enter City Name">
+        <button id="searchButton">Search</button>
+        <div class="weather_info">
+            <img  id="weather-icon">  
+            <b><p id="temperature"></p></b>
+            <h2 id="location"></h2>
+            <p id="description"></p>
+            <div id="details">
+                <div id="col">
+                    <img src="images\humidity.png">
+                    <div>
+                        <p id="humidity"></p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div id="col">
+                    <img src="images\windy.png">
+                    <div>
+                        <p id="wind"></p>
+                        <p>Wind speed</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="weather.js"></script>
+</body>
+</html>

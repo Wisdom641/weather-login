@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("images/pexels-ozgomz-845405.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;   
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    position: fixed;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    align-items: center;
+    z-index: 99;
+    margin-top: 25px;
+}
+header a{
+    font-size: 1.5em;
+    color: #162938;
+    user-select: none;
+    text-decoration: none;
+}
+.nav-menu{
+    margin-right: 10px;
+}
+.nav-menu a{
+    margin: 1rem;
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #162938;
+    margin-left: 40px;
+}
+.nav-menu a::after{
+    content: "" ;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #162938;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.nav-menu a:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.nav-menu .btnLogin-popup{
+    margin-right: 5px;
+    padding-top: 7px;
+    width: 130px; 
+    height: 50px;  
+    background: transparent;
+    border: 2px solid;
+    color: #162938;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+    margin-top: 20px;
+    
+}
+.nav-menu .btnLogin-popup:hover{
+    background-color: #cfcdcd73;
+    color: #162938;
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden ;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+.wrapper.active-popup {
+    transform: scale(1);
+}
+.wrapper.active {
+    height: 520px;
+}
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+
+}
+.wrapper .form-box.register {
+    position: absolute;
+    transform: none;
+    transform: translateX(400px)
+}
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}    
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    height:  50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-left: 3px;
+}
+.remember-forgot a {
+    color: #162938;
+    text-decoration: none;
+}
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+.btn {
+    width: 50%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: 25%;
+}
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600; 
+}
+.login-register p a:hover {
+    text-decoration: underline;
+}
